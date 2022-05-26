@@ -6,7 +6,7 @@ class Image:
     def updateParachute(self, livesLeft):
         match livesLeft:
             case 0:
-                self.image = "\n  X \n -|-\n / \ \n\nYOU LOST!!!"
+                self.image = "\n  X \n -|-\n / \ \n\nYOU LOST!!!\n"
             case 1:
                 self.image = "\n \  /\n  O\n -|-\n / \ \n\n^^^^^^^^^^^"
             case 2:

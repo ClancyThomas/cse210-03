@@ -6,7 +6,7 @@ class guessHandler:
         self.correct = False
 
     def setupGuess(self, secretWord):
-        for i in range(0, len(secretWord)-1):
+        for i in range(0, len(secretWord)):
             self.progress += "_"
 
     def newGuess(self):
@@ -15,9 +15,11 @@ class guessHandler:
 
     def checkGuess(self, secretWord):
         self.correct = False
-        for i in range(0, len(secretWord)-1):
-            if self.guess == secretWord[i]:
-                self.progress[i] = secretWord[i]
+        for i in range(0, len(secretWord)):
+            if self.guess.lower() == secretWord[i]:
+                tempList = list(self.progress)
+                tempList[i] = secretWord[i]
+                self.progress = "".join(tempList)
                 self.correct = True
         return self.correct
                 

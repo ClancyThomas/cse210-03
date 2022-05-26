@@ -4,7 +4,7 @@ class wordHandler:
     
     def __init__(self):
         self.secretWord = ""
-        self.wordList = ["Alphabet", "Couch", "Potato", "Garden", "Television"]
+        self.wordList = ["alphabet", "couch", "potato", "garden", "television"]
 
     def createSecretWord(self):
         x = len(self.wordList)

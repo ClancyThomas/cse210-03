@@ -18,8 +18,13 @@ class director:
         self.wordHandler.createSecretWord()
         secretWord = self.wordHandler.getSecretWord()
         self.guessHandler.setupGuess(secretWord)
+        print(secretWord)
 
         while(self.lives > 0):
+            
+            if (self.guessHandler.progress == secretWord):
+                break
+
             self.parachute.updateParachute(self.lives)
             
             self.terminalService.printGame(self.parachute.image, self.guessHandler.progress)
@@ -34,5 +39,5 @@ class director:
             self.parachute.updateParachute(self.lives)
             self.terminalService.printGame(self.parachute.image, self.guessHandler.progress)
         else:
-            print("\nYOU WON!!! Nice work!!!")
+            print("\nYOU WON!!! Nice work!!!\n")
                 
