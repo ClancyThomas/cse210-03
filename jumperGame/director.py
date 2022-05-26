@@ -12,31 +12,34 @@ class director:
         self.wordHandler = wordHandler()
         self.terminalService = terminalService()
 
+    # Function the runs the game
     def startGame(self):
         print("\n### Welcome to the Jumper Game ###\n")
         
+        # Get the secret word and get the game setup with that word
         self.wordHandler.createSecretWord()
         secretWord = self.wordHandler.getSecretWord()
         self.guessHandler.setupGuess(secretWord)
 
-        while(self.lives > 0):
+        # Loop that will repeat while the player still has lives or they haven't guessed the word
+        while(self.lives > 0 and self.guessHandler.progress != secretWord):
             
-            if (self.guessHandler.progress == secretWord):
-                break
-
+            # Update the parachute image and then print-Ask for the next guess
             self.parachute.updateParachute(self.lives)
-            
             self.terminalService.printGame(self.parachute.image, self.guessHandler.progress)
-            
             self.guessHandler.newGuess()
+
             if (self.guessHandler.checkGuess(secretWord)):
                 continue
             else:
                 self.lives -=1
         
+        # Print the last phase of the game out for losers and print you win if they won
         if(self.lives == 0):
             self.parachute.updateParachute(self.lives)
             self.terminalService.printGame(self.parachute.image, self.guessHandler.progress)
         else:
+            self.parachute.updateParachute(self.lives)
+            self.terminalService.printGame(self.parachute.image, self.guessHandler.progress)
             print("\nYOU WON!!! Nice work!!!\n")
                 

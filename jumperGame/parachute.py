@@ -3,6 +3,7 @@ class Image:
     def __init__(self):
         self.image = ""
 
+    # Updates the parachute image based on the amount of lives left
     def updateParachute(self, livesLeft):
         match livesLeft:
             case 0:
