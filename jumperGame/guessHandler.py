@@ -6,17 +6,16 @@ class guessHandler:
         self.correct = False
 
     def setupGuess(self, secretWord):
-        wordLen = len(secretWord)
-        for i in range(0, wordLen):
+        for i in range(0, len(secretWord)-1):
             self.progress += "_"
 
     def newGuess(self):
-        guess = input("Guess a lette from A to Z: ")
+        guess = input("\nGuess a letter from A to Z: ")
         self.guess = guess.lower()
 
     def checkGuess(self, secretWord):
         self.correct = False
-        for i in range(0, len(secretWord)):
+        for i in range(0, len(secretWord)-1):
             if self.guess == secretWord[i]:
                 self.progress[i] = secretWord[i]
                 self.correct = True

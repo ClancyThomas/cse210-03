@@ -13,7 +13,7 @@ class director:
         self.terminalService = terminalService()
 
     def startGame(self):
-        print("### Welcome to the Jumper Game ###")
+        print("\n### Welcome to the Jumper Game ###\n")
         
         self.wordHandler.createSecretWord()
         secretWord = self.wordHandler.getSecretWord()
