@@ -1,6 +1,3 @@
-from typing_extensions import Self
-
-
 class terminalService:
 
     def __init__(self):
