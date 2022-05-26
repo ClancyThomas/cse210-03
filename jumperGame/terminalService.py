@@ -1,7 +1,7 @@
 class terminalService:
 
     def __init__(self):
-        self.print = ""
+        self.start = ""
 
     # Handles all the printing for each turn of the game
     def printGame(self, parachute, word):
