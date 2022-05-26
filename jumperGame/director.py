@@ -29,6 +29,10 @@ class director:
                 continue
             else:
                 self.lives -=1
-            
-        self.terminalService.printGame(self.parachute.image, self.guessHandler.progress)
-            
+        
+        if(self.lives == 0):
+            self.parachute.updateParachute(self.lives)
+            self.terminalService.printGame(self.parachute.image, self.guessHandler.progress)
+        else:
+            print("\nYOU WON!!! Nice work!!!")
+                

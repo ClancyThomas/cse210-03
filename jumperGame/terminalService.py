@@ -4,8 +4,13 @@ class terminalService:
         self.print = ""
 
     def printGame(self, parachute, word):
-        print(word)
+        self.printWord(word)
         print(parachute)
+
+    def printWord(self, word):
+        for i in range(0, len(word)):
+            print(f"{word[i]} ", end="")
+        print()
 
 
 

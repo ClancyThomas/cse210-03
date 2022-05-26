@@ -8,7 +8,7 @@ class wordHandler:
 
     def createSecretWord(self):
         x = len(self.wordList)
-        randomIndex = randint(0, x)
+        randomIndex = randint(0, x-1)
         self.secretWord = self.wordList[randomIndex]
 
     def getSecretWord(self):
