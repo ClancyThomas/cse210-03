@@ -1,6 +1,6 @@
-from parachute import Image
-from guessHandler import guessHandler
-from wordHandler import wordHandler
+from jumperGame.parachute import Image
+from jumperGame.guessHandler import guessHandler
+from jumperGame.wordHandler import wordHandler
 
 class director:
 
@@ -12,3 +12,5 @@ class director:
 
     def startGame(self):
         print("### Welcome to the Jumper Game ###")
+        while(self.lives > 0):
+            
