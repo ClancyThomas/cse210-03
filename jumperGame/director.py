@@ -1,6 +1,7 @@
-from jumperGame.parachute import Image
-from jumperGame.guessHandler import guessHandler
-from jumperGame.wordHandler import wordHandler
+from parachute import Image
+from guessHandler import guessHandler
+from wordHandler import wordHandler
+from terminalService import terminalService
 
 class director:
 
@@ -9,8 +10,24 @@ class director:
         self.parachute = Image()
         self.guessHandler = guessHandler()
         self.wordHandler = wordHandler()
+        self.terminalService = terminalService()
 
     def startGame(self):
         print("### Welcome to the Jumper Game ###")
+        
+        self.wordHandler.createSecretWord()
+        word = self.wordHandler.getSecretWord()
+        self.guessHandler.setupGuess()
+
         while(self.lives > 0):
+            self.parachute.updateParachute()
+            
+            self.terminalService.printGame(self.guessHandler.progress, self.parachute.image)
+            
+            self.guessHandler.newGuess()
+            if (self.guessHandler.checkGuess()):
+                continue
+            else:
+                self.lives -=1
+            
             
