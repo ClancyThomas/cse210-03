@@ -18,7 +18,6 @@ class director:
         self.wordHandler.createSecretWord()
         secretWord = self.wordHandler.getSecretWord()
         self.guessHandler.setupGuess(secretWord)
-        print(secretWord)
 
         while(self.lives > 0):
             

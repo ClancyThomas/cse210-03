@@ -16,7 +16,7 @@ class guessHandler:
     def checkGuess(self, secretWord):
         self.correct = False
         for i in range(0, len(secretWord)):
-            if self.guess.lower() == secretWord[i]:
+            if self.guess.lower() == secretWord[i].lower():
                 tempList = list(self.progress)
                 tempList[i] = secretWord[i]
                 self.progress = "".join(tempList)
