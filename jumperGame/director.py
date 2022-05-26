@@ -22,7 +22,7 @@ class director:
         while(self.lives > 0):
             self.parachute.updateParachute(self.lives)
             
-            self.terminalService.printGame(self.guessHandler.progress, self.parachute.image)
+            self.terminalService.printGame(self.parachute.image, self.guessHandler.progress)
             
             self.guessHandler.newGuess()
             if (self.guessHandler.checkGuess(secretWord)):
@@ -30,4 +30,5 @@ class director:
             else:
                 self.lives -=1
             
+        self.terminalService.printGame(self.parachute.image, self.guessHandler.progress)
             
