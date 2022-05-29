@@ -12,7 +12,14 @@ class guessHandler:
 
     # Gets a new guess
     def newGuess(self):
-        guess = input("\nGuess a letter from A to Z: ")
+        valid_input = True
+        while valid_input:
+            guess = input("\nGuess a letter from A to Z: ")
+            if guess.isalpha():
+                valid_input = False
+            else:
+                print("\nGuess must be a letter from A to Z.")
+
         self.guess = guess.lower()
 
     # Checks if the guess exists in the word and replaces it in the placeholder
