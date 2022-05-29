@@ -2,7 +2,7 @@ from jumperGame.director import director
 
 def main():
     Director = director()
-    Director.startGame()
+    Director._startGame()
 
 
 if __name__ == "__main__":

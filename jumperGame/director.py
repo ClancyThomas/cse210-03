@@ -6,40 +6,40 @@ from jumperGame.terminalService import terminalService
 class director:
 
     def __init__(self):
-        self.lives = 5
-        self.parachute = Image()
-        self.guessHandler = guessHandler()
-        self.wordHandler = wordHandler()
-        self.terminalService = terminalService()
+        self._lives = 5
+        self._parachute = Image()
+        self._guessHandler = guessHandler()
+        self._wordHandler = wordHandler()
+        self._terminalService = terminalService()
 
     # Function the runs the game
-    def startGame(self):
+    def _startGame(self):
         print("\n### Welcome to the Jumper Game ###\n")
         
         # Get the secret word and get the game setup with that word
-        self.wordHandler.createSecretWord()
-        secretWord = self.wordHandler.getSecretWord()
-        self.guessHandler.setupGuess(secretWord)
+        self._wordHandler.createSecretWord()
+        secretWord = self._wordHandler.getSecretWord()
+        self._guessHandler._setupGuess(secretWord)
 
         # Loop that will repeat while the player still has lives or they haven't guessed the word
-        while(self.lives > 0 and self.guessHandler.progress != secretWord):
+        while(self._lives > 0 and self._guessHandler._progress != secretWord):
             
             # Update the parachute image and then print-Ask for the next guess
-            self.parachute.updateParachute(self.lives)
-            self.terminalService.printGame(self.parachute.image, self.guessHandler.progress)
-            self.guessHandler.newGuess()
+            self._parachute.updateParachute(self._lives)
+            self._terminalService.printGame(self._parachute._image, self._guessHandler._progress)
+            self._guessHandler.newGuess()
 
-            if (self.guessHandler.checkGuess(secretWord)):
+            if (self._guessHandler.checkGuess(secretWord)):
                 continue
             else:
-                self.lives -=1
+                self._lives -=1
         
         # Print the last phase of the game out for losers and print you win if they won
-        if(self.lives == 0):
-            self.parachute.updateParachute(self.lives)
-            self.terminalService.printGame(self.parachute.image, self.guessHandler.progress)
+        if(self._lives == 0):
+            self._parachute.updateParachute(self._lives)
+            self._terminalService.printGame(self._parachute._image, self._guessHandler._progress)
         else:
-            self.parachute.updateParachute(self.lives)
-            self.terminalService.printGame(self.parachute.image, self.guessHandler.progress)
-            print("\nYOU WON!!! Nice work!!!\n")
+            self._parachute.updateParachute(self._lives)
+            self._terminalService.printGame(self._parachute._image, self._guessHandler._progress)
+            print("\nYOU WON!!! NICE WORK!!!\n")
                 
